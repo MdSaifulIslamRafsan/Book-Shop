@@ -2,6 +2,7 @@ import { model, Schema } from "mongoose";
 import { ProductType } from "./products.interface";
 
 
+// create product schema
 const ProductSchema = new Schema<ProductType>({
     title: {
         type: String,
@@ -43,5 +44,5 @@ const ProductSchema = new Schema<ProductType>({
         default: true,
     }
 })
-
+// create product model
 export const ProductModel = model<ProductType>("Product" , ProductSchema);
