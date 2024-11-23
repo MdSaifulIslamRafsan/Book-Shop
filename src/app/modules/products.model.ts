@@ -42,7 +42,15 @@ const ProductSchema = new Schema<ProductType>({
         type: Boolean,
         required: [true , "Product in stock status is required"],
         default: true,
-    }
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    updatedAt: {
+        type: Date,
+        default: Date.now
+    },
 })
 // create product model
 export const ProductModel = model<ProductType>("Product" , ProductSchema);
