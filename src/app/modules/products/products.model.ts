@@ -58,21 +58,20 @@ const ProductSchema = new Schema<ProductType>(
   { timestamps: true }
 );
 
-
 // remove deleted products before finding them
-ProductSchema.pre('find', function(next){
-    this.find({isDeleted : {$ne: true}})
-    next();
-})
-
-ProductSchema.pre('findOne' , function(next){
-    this.find({isDeleted: {$ne: true}})
-    next();
+ProductSchema.pre("find", function (next) {
+  this.find({ isDeleted: { $ne: true } });
+  next();
 });
-ProductSchema.pre('aggregate' , function(next){
-    this.pipeline().unshift({$match: {isDeleted : {$ne: true}}})
-    next();
-})
+
+ProductSchema.pre("findOne", function (next) {
+  this.find({ isDeleted: { $ne: true } });
+  next();
+});
+ProductSchema.pre("aggregate", function (next) {
+  this.pipeline().unshift({ $match: { isDeleted: { $ne: true } } });
+  next();
+});
 
 // create product model
 export const ProductModel = model<ProductType>("Product", ProductSchema);
