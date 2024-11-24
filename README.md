@@ -90,22 +90,33 @@ npm run format
 
 📂 Project Structure
 ```sh
-├── src
-│   ├── controllers      # Controller files for handling business logic
-│   ├── models           # Database schemas/models
-│   ├── routes           # API routes
-│   ├── services         # Reusable services or business logic
-│   ├── utils            # Helper functions or utilities
-│   └── server.ts        # Entry point for the application
-├── dist                 # Compiled JavaScript files
-├── .env                 # Environment variables
-├── .eslintrc.js         # ESLint configuration
-├── .prettierrc          # Prettier configuration
-├── tsconfig.json        # TypeScript configuration
-└── package.json         # Project metadata and scripts
-🤝 Contribution
-We welcome contributions to enhance this project! Please feel free to fork the repository, submit pull requests, or report issues.
+├── .env                         # Environment variables
+├── .eslint.config.mjs           # ESLint configuration
+├── .prettierrc.json             # Prettier configuration
+├── package-lock.json            # Automatically generated lock file (npm)
+├── package.json                 # Project metadata and dependencies
+├── README.md                    # Project documentation
+├── tsconfig.json                # TypeScript configuration
+└── src
+    ├── app.ts                   # Main application entry point (for middleware, error handling)
+    ├── server.ts                # Server setup (API initialization)
+    ├── config.ts                # Configuration settings for the application (e.g., database, API keys)
+    └── modules
+        ├── products             # Folder for the products module
+            ├── product.controller.ts  # Controller handling API requests for products
+            ├── product.interface.ts   # TypeScript interfaces for product data
+            ├── product.model.ts       # Mongoose model for product schema
+            ├── product.router.ts      # Routing logic for product-related endpoints
+            └── product.service.ts     # Business logic related to products
+        ├── orders               # Folder for the orders module
+            ├── order.controller.ts    # Controller for managing order requests
+            ├── order.interface.ts     # Interfaces for order data
+            ├── order.model.ts         # Mongoose model for order schema
+            ├── order.router.ts        # Routing logic for order-related endpoints
+            └── order.service.ts        
 ```
+### 🤝 Contribution
+We welcome contributions to enhance this project! Please feel free to fork the repository, submit pull requests, or report issues.
 ### 📞 Support
 If you encounter any issues or have suggestions, please feel free to contact the author at:
 
