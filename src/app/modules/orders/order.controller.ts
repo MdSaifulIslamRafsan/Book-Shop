@@ -1,16 +1,20 @@
 import { Request, Response } from "express";
+import { orderService } from "./order.service";
 
 
-const createOrder = (req : Request, res: Response) => {
+// This function handles the POST request for creating an order.
+const createOrder = async(req : Request, res: Response) => {
         try {
-            const orderInfo = req.body
-            
-            
+            // Get the order information from the request body
+            const orderInfo = req.body;
+
+        // Save the order data to the database
+            const result = await orderService.orderCreateFormDB(orderInfo)
 
             res.send({
                 success: true,
                 message: 'Order created successfully',
-                orderInfo,
+                result
             })
 
         } catch (error) {

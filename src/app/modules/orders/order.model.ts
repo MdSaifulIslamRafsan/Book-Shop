@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { orderType } from "./order.interface";
+import { OrderType } from "./order.interface";
 
 
 const orderSchema = new Schema({
@@ -28,4 +28,4 @@ const orderSchema = new Schema({
 )
 
 // Create and export the Order model
-export const OrderModel = mongoose.model<orderType>('Orders', orderSchema);
+export const OrderModel = mongoose.model<OrderType>('Orders', orderSchema);

@@ -1,6 +1,6 @@
 import { ObjectId } from "mongoose";
 
-export interface orderType {
+export interface OrderType {
     email: string;
     product : ObjectId,
     quantity: number;
