@@ -79,7 +79,7 @@ const updateProduct = async(req : Request, res : Response) => {
         const productInfo = req.body;
         // Update the product in the database based on the provided ID and data
         const result = await productServices.updateProductFromDB(productId, productInfo);
-        
+
         res.status(200).send({
             success: true,
             message: 'Book updated successfully',
@@ -95,9 +95,33 @@ const updateProduct = async(req : Request, res : Response) => {
     }
 }
 
+// Delete a product by ID
+const deleteProduct = async(req: Request, res: Response) => {
+    try {
+        // Extract product ID from the request parameters
+        const {productId} = req.params ;
+
+        const result = await productServices.deletedProductFromDB(productId)
+
+
+        res.status(200).send({
+            success: true,
+            message: 'Book deleted successfully',
+            data: result
+        })
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: 'An error occurred while deleting the product',
+            error
+        })
+    }
+}
+
 export const ProductControllers = {
     createProduct,
     getAllProduct,
     getSingleProduct,
-    updateProduct
+    updateProduct,
+    deleteProduct
 }

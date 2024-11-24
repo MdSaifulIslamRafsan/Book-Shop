@@ -25,9 +25,16 @@ const updateProductFromDB = async(productID : string , productInfo : ProductType
     return result;
 }
 
+// Function to delete a product from database by its id
+const deletedProductFromDB = async(productId: string) => {
+    const result = await ProductModel.updateOne({_id: productId}, {isDeleted: true});
+    return result;
+}
+
 export const productServices ={
     createProductFromDB,
     getAllProductFromDB,
     getSingleProductFromDB,
-    updateProductFromDB
+    updateProductFromDB,
+    deletedProductFromDB
 } 

@@ -11,5 +11,6 @@ export interface ProductType {
     inStock : boolean;
     createdAt: Date;
     updatedAt: Date;
+    isDeleted : boolean;
 }
 
