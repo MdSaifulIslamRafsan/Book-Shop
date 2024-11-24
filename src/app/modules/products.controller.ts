@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { productServices } from "./products.service";
 
-
+// Create a new product
 const createProduct = async(req : Request , res: Response) => {
     try {
         // Extract product data from the request body
@@ -11,7 +11,6 @@ const createProduct = async(req : Request , res: Response) => {
       const result = await productServices.createProductFromDB(productInfo);
       
 
-    // Validate the product data
     res.status(200).send({
         success: true,
         message: 'Book created successfully',
@@ -26,12 +25,13 @@ const createProduct = async(req : Request , res: Response) => {
     }
 }
 
+// Get all products
 const getAllProduct = async(req : Request , res : Response) => {
     try {
         
-        // 
+        // Fetch all products from the database
         const result =  await productServices.getAllProductFromDB();
-        // 
+
         res.status(200).send({
             success: true,
             message: 'Books retrieved successfully',
@@ -47,7 +47,31 @@ const getAllProduct = async(req : Request , res : Response) => {
     }
 }
 
+// Get a single product by ID
+const getSingleProduct = async(req : Request, res : Response) => {
+    try {
+        // Extract product ID from the request parameters
+        const {productId} = req.params;
+
+        // Fetch the product from the database based on the provided ID
+        const result = await productServices.getSingleProductFromDB(productId);
+        
+        res.status(200).send({
+            success: true,
+            message: 'Book retrieved successfully',
+            data: result,
+        })
+    } catch (error : unknown) {
+        res.status(500).send({
+            success: false,
+            message: 'An error occurred while fetching single product',
+            error
+        });
+    }
+}
+
 export const ProductControllers = {
     createProduct,
-    getAllProduct
+    getAllProduct,
+    getSingleProduct
 }
