@@ -5,8 +5,8 @@ A robust and efficient backend application built using **Express.js** , **Mongoo
 ---
 
 ## 🚀 Live Demo
+https://book-shop-kappa-woad.vercel.app
 
-[Live URL](#) *(https://book-shop-kappa-woad.vercel.app/)*
 
 ---
 
@@ -36,7 +36,7 @@ Ensure you have the following installed:
 
 ```bash
 git clone https://github.com/MdSaifulIslamRafsan/Book-Shop.git
-cd assignment2
+cd Book-Shop
 ```
 ### Step 2: Install Dependencies
 npm install
