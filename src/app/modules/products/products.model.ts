@@ -74,4 +74,4 @@ ProductSchema.pre("aggregate", function (next) {
 });
 
 // create product model
-export const ProductModel = model<ProductType>("Product", ProductSchema);
+export const ProductModel = model<ProductType>("Products", ProductSchema);
