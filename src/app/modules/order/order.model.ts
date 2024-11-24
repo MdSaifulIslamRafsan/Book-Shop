@@ -2,6 +2,7 @@ import mongoose, { Schema } from "mongoose";
 import { OrderType } from "./order.interface";
 
 
+// Define the schema for the Order model
 const orderSchema = new Schema({
     email :{
         type: String,
@@ -19,6 +20,9 @@ const orderSchema = new Schema({
     totalPrice : {
         type: Number,
         required: [true, "totalPrice is required"]
+    },
+    totalRevenue : {
+        type: Number,
     }
 },
 {

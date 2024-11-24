@@ -26,6 +26,35 @@ const createOrder = async(req : Request, res: Response) => {
         }
 }
 
+// This function handles the calculation of total revenue
+const calculateTotalRevenue  = async(req : Request, res: Response) => {
+    try {
+         // Retrieve the total revenue from the database by calling the service method
+        const result = await orderService.calculateTotalRevenueFromDB();
+        res.send({
+            success: true,
+            message: "Revenue calculated successfully",
+            data : {
+                totalRevenue : result            
+            }
+        })
+
+
+
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: 'Failed to calculate total revenue',
+            error,
+
+        })
+    }
+}
+
+
+// Exporting the controller functions as part of the orderController object
+
 export const orderController = {
-    createOrder
+    createOrder,
+    calculateTotalRevenue 
 }

@@ -1,7 +1,7 @@
 import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import { productsRouter } from "./app/modules/products/Products.router";
-import { orderRouter } from "./app/modules/orders/order.router";
+import { orderRouter } from "./app/modules/order/order.router";
 const app: Application = express();
 
 // Middleware to handle CORS requests
