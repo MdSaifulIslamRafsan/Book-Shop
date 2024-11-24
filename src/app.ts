@@ -8,8 +8,8 @@ app.use(cors());
 // Middleware to parse JSON requests
 app.use(express.json());
 
-// Route to handle POST requests at /api/users
-app.use('/api/v1/Products', productsRouter)
+// Use the productsRouter for all /api/products requests
+app.use('/api/products', productsRouter)
 
 // Route to handle GET requests at /api/users
 app.get("/", (req: Request, res: Response) => {
