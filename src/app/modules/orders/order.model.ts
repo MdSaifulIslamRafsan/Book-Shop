@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import { orderType } from "./order.interface";
 
 
 const orderSchema = new Schema({
@@ -19,7 +20,12 @@ const orderSchema = new Schema({
         type: Number,
         required: [true, "totalPrice is required"]
     }
-})
+},
+{
+    timestamps: true,
+}
+
+)
 
 // Create and export the Order model
-export const OrderModel = mongoose.model('Orders', orderSchema);
+export const OrderModel = mongoose.model<orderType>('Orders', orderSchema);
